@@ -1,0 +1,1 @@
+export function Legend(){return <div className="legend" aria-label="Sell-through legend"><span className="late">● &lt;35 % Behind</span><span className="watch">● 35–50 % Watch</span><span className="pace">● 50–70 % On pace</span><span className="risk">● &gt;70 % Inventory risk</span></div>}

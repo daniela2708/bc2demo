@@ -1,0 +1,3 @@
+export type WeeklySpec={sub:string;final:number;t0:number};
+export const weeklySpecs:WeeklySpec[]=[['Drinkware',61.3,11.2],['Apparel',55.9,11.6],['Decor',54.7,11.8],['Lighting/pumpkins',53.7,11.7],['Novelties',48.9,12],['Trick or treat',47.7,12.6],['Serveware',44.4,12.2],['Textiles',33.8,12.9],['Melamine',28.1,13.2],['Pumpkin carving',26.1,13.4]].map(([sub,final,t0])=>({sub:String(sub),final:Number(final),t0:Number(t0)}));
+export function reconstructWeekly(specs=weeklySpecs,weeks=16,a=.62){return Array.from({length:weeks},(_,t)=>{const row:Record<string,string|number>={week:`W${t+1}`};for(const s of specs){const l=(x:number)=>1/(1+Math.exp(-a*(x-s.t0))),f=(l(t)-l(0))/(l(weeks-1)-l(0));row[s.sub]=s.final*f}return row})}

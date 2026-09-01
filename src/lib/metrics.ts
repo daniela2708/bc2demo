@@ -1,0 +1,3 @@
+import type {DerivedRow,SubcategoryRow} from '../data/domain';
+export const derive=(r:SubcategoryRow):DerivedRow=>({...r,sellThru:r.purchPcs?r.soldPcs/r.purchPcs:0,gpPct:r.soldRetail?r.retailGp/r.soldRetail:0,avgRetail:r.soldPcs?r.soldRetail/r.soldPcs:0,unitCost:r.purchPcs?r.purchCost/r.purchPcs:0,remaining:r.purchPcs-r.soldPcs});
+export const total=(rows:SubcategoryRow[]):DerivedRow=>derive(rows.reduce((a,r)=>({sub:'Total',purchPcs:a.purchPcs+r.purchPcs,purchCost:a.purchCost+r.purchCost,soldPcs:a.soldPcs+r.soldPcs,soldRetail:a.soldRetail+r.soldRetail,retailGp:a.retailGp+r.retailGp}),{sub:'Total',purchPcs:0,purchCost:0,soldPcs:0,soldRetail:0,retailGp:0}));
