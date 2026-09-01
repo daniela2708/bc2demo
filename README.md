@@ -2,6 +2,8 @@
 
 Power BI-style seasonal product report prototype built with React 18, strict TypeScript, Vite, and Recharts. The interface preserves Power BI interaction patterns while applying Wizeline and Weis visual identity.
 
+> **Prototype disclaimer:** All data, names, figures, comparisons, and scenarios in this project are fictional and provided solely to demonstrate and validate prototype functionality. They must not be used for business, financial, operational, or purchasing decisions.
+
 ## Commands
 
 ```bash
